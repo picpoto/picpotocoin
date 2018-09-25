@@ -1,0 +1,26 @@
+[Unit]
+Description=PPO's distributed currency daemon
+After=network.target
+
+[Service]
+User=ppo
+Group=ppo
+
+Type=forking
+PIDFile=/var/lib/ppod/ppod.pid
+
+ExecStart=/usr/bin/ppod -daemon -pid=/var/lib/ppod/ppod.pid \
+          -conf=/etc/ppo/ppo.conf -datadir=/var/lib/ppod
+
+ExecStop=-/usr/bin/ppo-cli -conf=/etc/ppo/ppo.conf \
+         -datadir=/var/lib/ppod stop
+
+Restart=always
+PrivateTmp=true
+TimeoutStopSec=60s
+TimeoutStartSec=2s
+StartLimitInterval=120s
+StartLimitBurst=5
+
+[Install]
+WantedBy=multi-user.target

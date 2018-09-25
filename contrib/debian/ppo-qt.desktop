@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=PPO
+Comment=PPO P2P Cryptocurrency
+Comment[fr]=PPO, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=PPO, eşten eşe kriptografik sanal para birimi
+Exec=ppo-qt %u
+Terminal=false
+Type=Application
+Icon=ppo128
+MimeType=x-scheme-handler/ppo;
+Categories=Office;Finance;

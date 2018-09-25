@@ -1,0 +1,26 @@
+# /etc/conf.d/ppod: config file for /etc/init.d/ppod
+
+# Config file location
+#BITCOIND_CONFIGFILE="/etc/ppo/ppo.conf"
+
+# What directory to write pidfile to?  (created and owned by $BITCOIND_USER)
+#BITCOIND_PIDDIR="/var/run/ppod"
+
+# What filename to give the pidfile
+#BITCOIND_PIDFILE="${BITCOIND_PIDDIR}/ppod.pid"
+
+# Where to write ppod data (be mindful that the blockchain is large)
+#BITCOIND_DATADIR="/var/lib/ppod"
+
+# User and group to own ppod process
+#BITCOIND_USER="ppo"
+#BITCOIND_GROUP="ppo"
+
+# Path to ppod executable
+#BITCOIND_BIN="/usr/bin/ppod"
+
+# Nice value to run ppod under
+#BITCOIND_NICE=0
+
+# Additional options (avoid -conf and -datadir, use flags above)
+BITCOIND_OPTS=""
