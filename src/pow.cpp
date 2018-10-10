@@ -32,16 +32,22 @@ unsigned int GetNextWorkRequired(const CBlockIndex* pindexLast, const CBlockHead
         return Params().ProofOfWorkLimit().GetCompact();
     }
 
-	if(pindexLast->nHeight >= 200 && pindexLast->nHeight <= Params().LAST_POW_BLOCK()) {
+	if(pindexLast->nHeight >= 200 && pindexLast->nHeight <= LAST_POW_BLOCK(chainActive.Height())) {
+        uint256 bnNew;
+		bnNew = ~uint256(0) >> 20;
+		return bnNew.GetCompact();
+	}
+
+	if(pindexLast->nHeight == 19270) {
         uint256 bnNew;
 		bnNew = ~uint256(0) >> 20;
 		return bnNew.GetCompact();
 	}
 
 	// Proof of Stake
-    if (pindexLast->nHeight > Params().LAST_POW_BLOCK()) {
+    if (pindexLast->nHeight > LAST_POW_BLOCK(chainActive.Height())) {
         uint256 bnTargetLimit = Params().ProofOfWorkLimit();
-		if (pindexLast->nHeight <= Params().LAST_POW_BLOCK() + 3 )
+		if (pindexLast->nHeight <= LAST_POW_BLOCK(chainActive.Height()) + 3 )
 			return bnTargetLimit.GetCompact();
 		
         int64_t nTargetSpacing = Params().TargetSpacing();

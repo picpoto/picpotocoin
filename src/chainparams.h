@@ -14,6 +14,22 @@
 
 #include <vector>
 
+
+	inline int64_t LAST_POW_BLOCK(int nHeight) { 
+
+	if(nHeight < 19270)
+	{
+	return 240;
+	}
+	else if(nHeight >= 19270)
+	{
+	return 19500;
+	}
+}	
+
+
+
+
 typedef unsigned char MessageStartChars[MESSAGE_START_SIZE];
 
 struct CDNSSeedData {
@@ -73,7 +89,6 @@ public:
     int64_t TargetTimespan() const { return nTargetTimespan; }
     int64_t TargetSpacing() const { return nTargetSpacing; }
     int64_t Interval() const { return nTargetTimespan / nTargetSpacing; }
-    int LAST_POW_BLOCK() const { return nLastPOWBlock; }
     int COINBASE_MATURITY() const { return nMaturity; }
     int ModifierUpgradeBlock() const { return nModifierUpdateBlock; }
     CAmount MaxMoneyOut() const { return nMaxMoneyOut; }
@@ -113,7 +128,6 @@ protected:
     int nToCheckBlockUpgradeMajority;
     int64_t nTargetTimespan;
     int64_t nTargetSpacing;
-    int nLastPOWBlock;
     int nMasternodeCountDrift;
     int nMaturity;
 	int nMaturityMAX;

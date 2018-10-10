@@ -72,6 +72,7 @@ static void convertSeed6(std::vector<CAddress>& vSeedsOut, const SeedSpec6* data
 static Checkpoints::MapCheckpoints mapCheckpoints =
     boost::assign::map_list_of
 		(0, uint256("0x000000581f77d5918eedded0e7740024ca13266ae024cc459124b138ebec0d13"))
+		(19271, uint256("0x00000b8ed49f44e08f2932c2971cc0dbc298b8ba1eeeb28f1087383c409173a8"))
 		;
 static const Checkpoints::CCheckpointData data = {
     &mapCheckpoints,
@@ -120,21 +121,20 @@ public:
         nMinerThreads = 0;
         nTargetTimespan = 1 * 60;
         nTargetSpacing = 1 * 60;
-        nLastPOWBlock = 240;
         nMaturity = 100;
         nMasternodeCountDrift = 20;
-		nMasternodeColleteralLimxDev = 2000;
+	nMasternodeColleteralLimxDev = 5000;
         nModifierUpdateBlock = 1;
-        nMaxMoneyOut = 20000000 * COIN;
+        nMaxMoneyOut = 50000000 * COIN;
 		
         genesis = CreateGenesisBlock(1537806714, 1895653, 0x1e0ffff0, 1, 0 * COIN);
         hashGenesisBlock = genesis.GetHash();
         assert(hashGenesisBlock == uint256("0x000000581f77d5918eedded0e7740024ca13266ae024cc459124b138ebec0d13"));
         assert(genesis.hashMerkleRoot == uint256("0x2e7f9d068504d7b6dedf9900092e838b078467ad6ad3910a3a0e1fee87797637"));
 		
-	vSeeds.push_back(CDNSSeedData("picpoto1.picpoto.com", "picpoto1.picpoto.com"));
-	vSeeds.push_back(CDNSSeedData("picpoto2.picpoto.com", "picpoto2.picpoto.com"));
-	vSeeds.push_back(CDNSSeedData("picpoto3.picpoto.com", "picpoto3.picpoto.com"));
+	vSeeds.push_back(CDNSSeedData("pic1.picpoto.com", "pic1.picpoto.com"));
+	vSeeds.push_back(CDNSSeedData("pic2.picpoto.com", "pic2.picpoto.com"));
+	vSeeds.push_back(CDNSSeedData("pic3.picpoto.com", "pic3.picpoto.com"));
 
 
 		

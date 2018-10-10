@@ -1620,17 +1620,17 @@ int64_t GetBlockValue(int nHeight)
 	else if (nHeight > 1 && nHeight <= 240) 
 	{nSubsidy = 1 * COIN;} 
 	else if (nHeight > 240 && nHeight <= 50000) 
-	{nSubsidy = 15 * COIN;} 
+	{nSubsidy = 70 * COIN;} 
 	else if (nHeight > 50000 && nHeight <= 200000) 
-	{nSubsidy = 12 * COIN;} 
+	{nSubsidy = 40 * COIN;} 
 	else if (nHeight > 200000 && nHeight <= 600000) 
-	{nSubsidy = 8 * COIN;} 
+	{nSubsidy = 30 * COIN;} 
 	else if (nHeight > 600000 && nHeight <= 800000) 
-	{nSubsidy = 7 * COIN;} 
+	{nSubsidy = 20 * COIN;} 
 	else if (nHeight > 800000 && nHeight <= 3000000) 
-	{nSubsidy = 5 * COIN;} 
+	{nSubsidy = 10 * COIN;} 
 	else if (nHeight > 3000000) 
-	{nSubsidy = 3 * COIN;}
+	{nSubsidy = 5 * COIN;}
     return nSubsidy;
 }
 
@@ -2055,11 +2055,11 @@ bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockIndex* pin
         return true;
     }
 
-    if (pindex->nHeight <= Params().LAST_POW_BLOCK() && block.IsProofOfStake())
+    if (pindex->nHeight <= LAST_POW_BLOCK(chainActive.Height()) && block.IsProofOfStake())
         return state.DoS(100, error("ConnectBlock() : PoS period not active"),
             REJECT_INVALID, "PoS-early");
 
-    if (pindex->nHeight > Params().LAST_POW_BLOCK() && block.IsProofOfWork())
+    if (pindex->nHeight > LAST_POW_BLOCK(chainActive.Height()) && block.IsProofOfWork())
         return state.DoS(100, error("ConnectBlock() : PoW period ended"),
             REJECT_INVALID, "PoW-ended");
 
@@ -3523,7 +3523,7 @@ bool TestBlockValidity(CValidationState& state, const CBlock& block, CBlockIndex
     if (!CheckBlock(block, state, fCheckPOW, fCheckMerkleRoot))
         return false;
 	///AAAA
-	if( pindexPrev->nHeight +1 > Params().LAST_POW_BLOCK()){
+	if( pindexPrev->nHeight +1 > LAST_POW_BLOCK(chainActive.Height())){
     if (!ContextualCheckBlock(block, state, pindexPrev))
         return false;
 	}

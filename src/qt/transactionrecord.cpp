@@ -109,32 +109,32 @@ QList<TransactionRecord> TransactionRecord::decomposeTransaction(const CWallet* 
 						sub.type = TransactionRecord::MNReward;
 					}
 				} else if (nHeight > 240 && nHeight <= 50000) {
-					nSubsidy = 15 * COIN;
+					nSubsidy = 70 * COIN;
 					if(nSubsidy * 80 / 100 == txout.nValue) {
 						sub.type = TransactionRecord::MNReward;
 					}
 				} else if (nHeight > 50000 && nHeight <= 200000) {
-					nSubsidy = 12 * COIN;
+					nSubsidy = 40 * COIN;
 					if(nSubsidy * 80 / 100 == txout.nValue) {
 						sub.type = TransactionRecord::MNReward;
 					}
 				} else if (nHeight > 200000 && nHeight <= 600000) {
-					nSubsidy = 8 * COIN;
+					nSubsidy = 30 * COIN;
 					if(nSubsidy * 80 / 100 == txout.nValue) {
 						sub.type = TransactionRecord::MNReward;
 					}
 				} else if (nHeight > 600000 && nHeight <= 800000) {
-					nSubsidy = 7 * COIN;
+					nSubsidy = 20 * COIN;
 					if(nSubsidy * 80 / 100 == txout.nValue) {
 						sub.type = TransactionRecord::MNReward;
 					}
 				} else if (nHeight > 800000 && nHeight <= 3000000) {
-					nSubsidy = 5 * COIN;
+					nSubsidy = 10 * COIN;
 					if(nSubsidy * 80 / 100 == txout.nValue) {
 						sub.type = TransactionRecord::MNReward;
 					}
 				} else if (nHeight > 3000000) {
-					nSubsidy = 3 * COIN;
+					nSubsidy = 5 * COIN;
 					if(nSubsidy * 80 / 100 == txout.nValue) {
 						sub.type = TransactionRecord::MNReward;
 					}
