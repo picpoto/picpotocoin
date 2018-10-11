@@ -146,24 +146,7 @@ Value listmessages(const Array& params, bool fHelp)
     Array ret;
 
     std::list<CAccountingEntry> acentries;
-    CWallet::TxItems txOrdered = pwalletMain->OrderedTxItems(acentries, "*");
-
-    // iterate backwards until we have nCount items to return:
-    for (CWallet::TxItems::reverse_iterator it = txOrdered.rbegin(); it != txOrdered.rend(); ++it) {
-        CWalletTx* const pwtx = (*it).second.first;
-        if (pwtx != 0) {
-			unsigned char opcode = pwtx->vout[0].scriptPubKey[0];
-			if(opcode == OP_RETURN) {
-				string strMessage = GetMessage(pwtx->vout[0].scriptPubKey, fBase64);
-				Object entry;
-				entry.push_back(Pair("message", strMessage.c_str()));
-				MsgWalletTxToJSON(*pwtx, entry);
-				ret.push_back(entry);
-			}
-		}
-
-        if ((int)ret.size() >= (nCount + nFrom)) break;
-    }
+  
     // ret is newest to oldest
 
     if (nFrom > (int)ret.size())
