@@ -15,16 +15,36 @@
 #include <vector>
 
 
+
+	inline int64_t MasternodeColleteralLimxDev(int nHeight) { 
+
+	if(nHeight <= 50000)
+	{
+	return 10000;
+	}
+	else if(nHeight > 50000)
+	{
+	return 25000;
+	}
+	return 0;
+}	
+
+
 	inline int64_t LAST_POW_BLOCK(int nHeight) { 
 
 	if(nHeight < 19270)
 	{
 	return 240;
 	}
-	else if(nHeight >= 19270)
+	else if(nHeight >= 19270 && nHeight < 36810)
 	{
 	return 19500;
 	}
+	else if(nHeight >= 36810)
+	{
+	return 37000;
+	}
+	return 0;
 }	
 
 
@@ -94,7 +114,6 @@ public:
     CAmount MaxMoneyOut() const { return nMaxMoneyOut; }
     /** The masternode count that we will allow the see-saw reward payments to be off by */
     int MasternodeCountDrift() const { return nMasternodeCountDrift; }
-	int MasternodeColleteralLimxDev() const { return nMasternodeColleteralLimxDev; }
     /** Make miner stop after a block is found. In RPC, don't return until nGenProcLimit blocks are generated */
     bool MineBlocksOnDemand() const { return fMineBlocksOnDemand; }
     /** In the future use NetworkIDString() for RPC fields */
@@ -119,7 +138,6 @@ protected:
     //! Raw pub key bytes for the broadcast alert signing key.
     std::vector<unsigned char> vAlertPubKey;
     int nDefaultPort;
-	int nMasternodeColleteralLimxDev;
     uint256 bnProofOfWorkLimit;
     int nMaxReorganizationDepth;
     int nSubsidyHalvingInterval;

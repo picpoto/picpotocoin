@@ -208,7 +208,7 @@ void CMasternode::Check(bool forceCheck)
     if (!unitTest) {
         CValidationState state;
         CMutableTransaction tx = CMutableTransaction();
-        CAmount testValue = Params().MasternodeColleteralLimxDev() * COIN - 0.01 * COIN;
+        CAmount testValue = MasternodeColleteralLimxDev(chainActive.Height()) * COIN - 0.01 * COIN;
 	    CTxOut vout = CTxOut(testValue, Params().MasternodeTestDummyAddress());
         tx.vin.push_back(vin);
         tx.vout.push_back(vout);
@@ -570,7 +570,7 @@ bool CMasternodeBroadcast::CheckInputsAndAdd(int& nDoS)
 
     CValidationState state;
     CMutableTransaction tx = CMutableTransaction();
-	CAmount testValue = Params().MasternodeColleteralLimxDev() * COIN - 0.01 * COIN;
+	CAmount testValue = MasternodeColleteralLimxDev(chainActive.Height()) * COIN - 0.01 * COIN;
     CTxOut vout = CTxOut(testValue, Params().MasternodeTestDummyAddress());
     tx.vin.push_back(vin);
     tx.vout.push_back(vout);
