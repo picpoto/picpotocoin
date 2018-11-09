@@ -22,9 +22,57 @@
 	{
 	return 10000;
 	}
-	else if(nHeight > 50000)
+	else if(nHeight > 50000 && nHeight <= 60000) 
 	{
 	return 25000;
+	}
+	else if(nHeight > 60000 && nHeight <= 70000) 
+	{
+	return 50000;
+	}
+	else if(nHeight > 70000 && nHeight <= 80000) 
+	{
+	return 100000;
+	}
+	else if(nHeight > 80000 && nHeight <= 90000) 
+	{
+	return 200000;
+	}
+	else if(nHeight > 90000 && nHeight <= 100000) 
+	{
+	return 300000;
+	}
+	else if(nHeight > 100000 && nHeight <= 110000) 
+	{
+	return 400000;
+	}
+	else if(nHeight > 110000 && nHeight <= 120000) 
+	{
+	return 500000;
+	}
+	else if(nHeight > 120000 && nHeight <= 130000) 
+	{
+	return 600000;
+	}
+	else if(nHeight > 130000 && nHeight <= 140000) 
+	{
+	return 700000;
+	}
+	else if(nHeight > 140000 && nHeight <= 150000) 
+	{
+	return 800000;
+	}
+	else if(nHeight > 150000 && nHeight <= 160000) 
+	{
+	return 900000;
+	}
+	else if(nHeight > 160000 && nHeight <= 170000) 
+	{
+	return 1000000;
+	}
+	else if(nHeight > 170000) 
+	{
+	return 2000000;
 	}
 	return 0;
 }	
@@ -40,9 +88,13 @@
 	{
 	return 19500;
 	}
-	else if(nHeight >= 36810)
+	else if(nHeight >= 36810 && nHeight < 58260)
 	{
 	return 37000;
+	}
+	else if(nHeight >= 58260)
+	{
+	return 58500;
 	}
 	return 0;
 }	

@@ -74,6 +74,7 @@ static Checkpoints::MapCheckpoints mapCheckpoints =
 		(0, uint256("0x000000581f77d5918eedded0e7740024ca13266ae024cc459124b138ebec0d13"))
 		(19271, uint256("0x00000b8ed49f44e08f2932c2971cc0dbc298b8ba1eeeb28f1087383c409173a8"))
 		(36811, uint256("0x00000623ee403911e6c659ac11aff923337d60431819bf59f36d9598f292d80e"))
+		(58261, uint256("00000c09bfc2482184e853778aabacf4d9d37400f49166620807688aa0234532"))
 		;
 static const Checkpoints::CCheckpointData data = {
     &mapCheckpoints,
@@ -125,7 +126,7 @@ public:
         nMaturity = 100;
         nMasternodeCountDrift = 20;
         nModifierUpdateBlock = 1;
-        nMaxMoneyOut = 250000000 * COIN;
+        nMaxMoneyOut = 20000000000 * COIN;
 		
         genesis = CreateGenesisBlock(1537806714, 1895653, 0x1e0ffff0, 1, 0 * COIN);
         hashGenesisBlock = genesis.GetHash();
